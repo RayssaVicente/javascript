@@ -8,14 +8,17 @@
 </head>
 <body>
     <h1>Cadastro de Devs</h1>
-    <p>
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome">
-        <br><br>
-       <button type="submit" onclick="novatec()">Nova tecnologia</button>
-    </p>
-    <section id="listaDeDevs"></section>
+     
+    <form id="devForm">
+        <label for="fullname">Nome Completo: </label>
+        <input type="text" name="fullname" id="fullname"><br><br>
 
-    <input type="radio" min="">
+        <label>Tecnologias:</label>
+        <button id="addTecBtn" type="button">Adicionar Nova</button>
+        <ul id="stackInputs"></ul>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+    
 </body>
 </html>
