@@ -10,3 +10,29 @@ Construa um jogo tic-tac-toe, conhecido em português como jogo da velha, utiliz
 - Em caso de empate, uma mensagem de empate deve ser mostrada na tela;
 - Deve ser possível reiniciar o jogo para jogar novamente.*/
 
+const boardRegions =  document.querySelectorAll('#gameBoard span')
+let vBoard = []
+let turnPlayer = ''
+
+function updatetitle (){
+    const playerInput = document.getElementById('turnPlayer')
+    document.getElementById('turnPlayer').innerText = playerInput.value
+}
+
+function initializeGame(){
+    vBoard = [['', '', ''], ['', '', ''], ['', '', '']]
+    turnPlayer = 'player1'
+    document.querySelector('h2').innerHTML = 'Vez de: <span id="turnPlayer"></span>'
+    updatetitle()
+    boardRegions.forEach(function (element){
+        element.classList.remove('win')
+        element.innerText = ''
+        element.addEventListener('click', handleBoardClick)
+    })
+}
+
+function handleBoardClick(ev){
+
+}
+
+// document.getElementById('start').addEventListener('click', initializeGame)
