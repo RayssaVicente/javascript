@@ -59,3 +59,31 @@ function disableRegion(element){
     element.removeEventListener('click', handleBoardClick)
 }
 
+ function handleBoardClick(ev){
+    const span = ev.currentTarget
+    const rigion = span.dataset.rigion 
+    const rowColumnPair = rigion.split(".")
+    const row = rowColumnPair[0]
+    const column = rowColumnPair[1]
+    if (turnPlayer === 'player1'){
+        span.innerText = 'X'
+        vBoard[row][column] = 'X'
+    } else {
+        span.innerText = 'O'
+        vBoard[row][column] = 'O'
+    }
+    console.clear()
+    console.table(vBoard)
+    disableRegion(span)
+    const winRegions = getWinRigions()
+    if(winRegions.length > 0){
+        console.log("VENCEU")
+    }else if (vBoard.flat().includes('')){
+        turnPlayer = turnPlayer === 'player1' ? 'player2' : 'player1'
+        updateTitle()
+    }else{
+        document.querySelector('h2').innerHTML = "Empate!"
+    }
+}
+
+document.getElementById('start').addEventListener('click', initializeGame)
