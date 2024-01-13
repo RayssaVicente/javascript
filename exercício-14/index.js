@@ -9,11 +9,11 @@ Média Aritmética Ponderada
 Mediana
 Moda*/
 
-
-
-function mediaAritimetica (...number){
-    const sum = number.reduce((accum, num) => accum + num, 0) 
-    return sum / number.length
+const MediaAritmeticaSimples = (...numbers) => {
+    const sum = numbers.reduce((accum, num ) => accum + num, 0 )
+    return sum / numbers.length
 }
 
-console.log(mediaAritimetica(2, 6, 3, 7, 4))
+console.log(`Média Aritmética simples: ${MediaAritmeticaSimples(3, 6, 10, 9)}`)
+
+
