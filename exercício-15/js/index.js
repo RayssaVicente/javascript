@@ -1,6 +1,15 @@
+/*### Modularizando uma Aplicação
+
+Para esse exercício você irá utilizar o código do projeto **Calc.js**, desenvolvido nas aulas Projeto Prático Guiado do módulo anterior, **Javascript II - DOM**. Você deverá modularizar o código javascript da aplicação, dividindo o conteúdo do arquivo index.js em diferentes módulos utilizando a sintaxe dos ES Modules. Seu projeto deve conter **pelo menos 3 módulos**.
+
+Caso você não tenha os arquivos do projeto Calc.js você poderá baixá-los na aba de materiais dessa aula.*/
+
+import calculando from "./calculando"
+
 const main = document.querySelector('main')
 const root = document.querySelector(':root')
 const input = document.getElementById('input')
+ 
 const resultInput = document.getElementById('result')
 
 const allowedKeys = ["(", ")", "/", "*", "-", "+", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ".", "%", " "]
@@ -35,14 +44,6 @@ input.addEventListener('keydown', function(ev) {
 
 document.getElementById('equal').addEventListener('click', calculando)
 
-function calculando(){
-    resultInput.value = 'ERROR'
-    resultInput.classList.add('error')
-    const result = eval(input.value)
-    resultInput.value = result
-    resultInput.classList.remove('error')
-}
-
 document.getElementById('copyToClipboard').addEventListener('click', function(ev){
     const button = ev.currentTarget
     if(button.innerText === 'Copy'){
@@ -71,3 +72,4 @@ document.getElementById('themeSwitcher').addEventListener('click', function(){
     }
     
 })
+
