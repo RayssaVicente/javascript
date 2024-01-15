@@ -28,3 +28,18 @@ const weightedAverage = (...entries) => {
     { number: 7 },
     { number: 10, weight: 1 },
   )}`)
+
+
+  const median = (...numbers) => {
+    const orderNumbers = [...numbers].sort((a, b) => a - b)
+    const middle = Math.floor(orderNumbers.length / 2)
+    if(orderNumbers.length % 2 !== 0){
+      return orderNumbers[middle]
+    }
+    const firstMedian = orderNumbers[middle - 1]
+    const seondMedian = orderNumbers[middle]
+    return MediaAritmeticaSimples(firstMedian, seondMedian)
+  }
+
+  console.log(`Mediana: ${median(2, 5, 99, 4, 42, 7)}`)
+  console.log(`Mediana: ${median(15, 14, 8, 7, 3)}`)
