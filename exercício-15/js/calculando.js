@@ -1,4 +1,5 @@
 export default function calculando(){
+    const resultInput = document.querySelector('#result')
     resultInput.value = 'ERROR'
     resultInput.classList.add('error')
     const result = eval(input.value)

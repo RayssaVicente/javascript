@@ -4,12 +4,11 @@ Para esse exercício você irá utilizar o código do projeto **Calc.js**, desen
 
 Caso você não tenha os arquivos do projeto Calc.js você poderá baixá-los na aba de materiais dessa aula.*/
 
-import calculando from "./calculando"
+import calculando from "./calculando.js"
+import copyToClipboard from "./copyToClipboard.js"
+import themeSwitcher from "./themeSwitcher.js"
 
-const main = document.querySelector('main')
-const root = document.querySelector(':root')
 const input = document.getElementById('input')
- 
 const resultInput = document.getElementById('result')
 
 const allowedKeys = ["(", ")", "/", "*", "-", "+", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ".", "%", " "]
@@ -44,32 +43,7 @@ input.addEventListener('keydown', function(ev) {
 
 document.getElementById('equal').addEventListener('click', calculando)
 
-document.getElementById('copyToClipboard').addEventListener('click', function(ev){
-    const button = ev.currentTarget
-    if(button.innerText === 'Copy'){
-        button.innerText = 'Copied!'
-        button.classList.add('success')
-        navigator.clipboard.writeText(resultInput.value)
-    } else {
-        button.innerText = 'Copy'
-        button.classList.remove('success')
-    }
-})
+document.getElementById('copyToClipboard').addEventListener('click', copyToClipboard)
 
-document.getElementById('themeSwitcher').addEventListener('click', function(){
-    if (main.dataset.theme === 'dark'){
-    root.style.setProperty('--bg-color', '#f1f5f9')
-    root.style.setProperty('--border-color', '#aaa')
-    root.style.setProperty('--font-color', '#212529')
-    root.style.setProperty('--primary-color', '#26834a')
-    main.dataset.theme = 'light'
-    } else {
-        root.style.setProperty('--bg-color', '#212529')
-        root.style.setProperty('--border-color', '#666')
-        root.style.setProperty('--font-color', '#f1f5f9')
-        root.style.setProperty('--primary-color', '#4dff91')
-        main.dataset.theme = 'dark'
-    }
-    
-})
+document.getElementById('themeSwitcher').addEventListener('click', themeSwitcher)
 
