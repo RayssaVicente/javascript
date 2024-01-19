@@ -36,3 +36,7 @@ const eragon = new Book("Eragon", 468, tags, author)
 
 console.log(eragon)
 
+const eldest = new Book("Eldest", 644, tags, author)
+
+console.log(eldest)
+
