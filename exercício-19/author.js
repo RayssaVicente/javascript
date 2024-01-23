@@ -1,16 +1,16 @@
-const post = require("./post")
+const Post = require("./post")
 
-class author {
+class Author {
     constructor(name){
         this.name = name
         this.posts = []
     }
 
     writePost(title, body){
-        const post = new post(title, body, this)
+        const post = new Post(title, body, this)
         this.posts.push(post)
         return post
     }
 }
 
-module.exportes = author
+module.exports = Author

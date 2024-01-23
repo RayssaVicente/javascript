@@ -1,6 +1,6 @@
-const comment = require('./comment')
+const Comment = require("./comment")
 
-class post {
+class Post {
     constructor(title,body, author){
         this.title = title
         this.body = body
@@ -10,8 +10,9 @@ class post {
     }
 
     addComment(username, content){
-        this.comments.push(new this.comment(username, content))
+        this.comments.push(new Comment(username, content))
+    
     }
 }
 
-module.exports = post
+module.exports = Post

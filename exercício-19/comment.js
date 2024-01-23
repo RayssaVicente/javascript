@@ -1,9 +1,9 @@
-class comment{
-    constructor(username, content){
-        this.username = username
-        this.content = content
-        thiscreateAt = new Date()
+class Comment {
+    constructor(username, content) {
+      this.username = username
+      this.content = content
+      this.createdAt = new Date()
     }
-}
-
-module.exports = comment
+  }
+  
+  module.exports = Comment
