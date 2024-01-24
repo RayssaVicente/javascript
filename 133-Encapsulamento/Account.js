@@ -7,7 +7,18 @@ class Account {
         this.#balance = 0
     }
 
-    
+    getBalance(email, password){
+        if(this.#authenticate(email, password)){
+            return this.#balance
+        }else{
+            return null
+        }
+    }
+
+    #authenticate(email, password){
+        return this.email === email && this.#password === password
+    }
+
 }
 
 const user = {
