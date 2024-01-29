@@ -7,3 +7,13 @@ Ela também deve possuir um método render para adicionar o elemento na página 
 Uma classe específica para elementos input, que deve ser uma subclasse da classe Component.
 Uma classe específica para elementos label, que deve ser uma subclasse da classe Component e no seu construtor deve ser possível indicar como primeiro parâmetro qual será o seu conteúdo em texto.
 Uma classe específica para elementos form, que deve ser uma subclasse da classe Component e possuir um método para adicionar elementos como filhos (através das instâncias das classes Component e suas subclasses).*/
+
+import {Component} from "./Component.js"
+import { Form } from "./form.js"
+import { Input } from "./Input.js"
+import {Label} from "./Label.js"
+
+const title = new Component("h1", "body", {textContent: 'Olá, mundo!'})
+
+
+title.render()

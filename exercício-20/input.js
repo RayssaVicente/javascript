@@ -1,5 +1,5 @@
 
-export {Component} from "./component.js";
+import {Component} from "./Component.js";
 
 export class Input extends Component{
     constructor(parent, options){
