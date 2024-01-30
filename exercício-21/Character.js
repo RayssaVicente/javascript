@@ -1,13 +1,13 @@
 class Character{
-    constructor(nome, pontosDeVida, pontosDeAtaque, PontosDeDefesa){
-        this.nome = nome
-        this.pontosDeVida = pontosDeVida
-        this.pontosDeAtaque = pontosDeAtaque
-        this.PontosDeDefesa = PontosDeDefesa
+    constructor(name, lifePts, attackPts, defenderPts){
+        this.name = name
+        this.lifePts = lifePts
+        this.attackPts = attackPts
+        this.defenderPts = defenderPts
     }
 
-    atacar(){
-        
+    attack(targetCharacter){
+        targetCharacter.lifePts -= this.attackPts - targetCharacter.defenderPts
     }
 }
-    
+module.exports = Character
