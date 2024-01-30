@@ -20,3 +20,21 @@ Ela também deve sobrescrever o método de ataque para que ele só aconteça se 
 Por fim, ela deverá ter também um método para mudar a posição entre ataque e defesa. Enquanto estiver em posição de defesa, os pontos de escudo devem ser somados aos de defesa para fazer o cálculo do método de ataque. Ao trocar para a posição de ataque apenas os pontos de defesa devem ser considerados (comportamento normal).
 
 Obs.: Você pode criar um outro arquivo, importar as classes e criar algumas instâncias para testá-las.*/
+
+const Mage = require("./Mage");
+const Thief = require("./Thief");
+const Warrior = require("./Warrior");
+
+const arthur =  new Mage('Arthur', 90, 4, 2, 14 )
+const beatrice = new Thief('Beatrice', 140, 20, 8)
+const cain = new Warrior('Cain', 200, 14, 12, 4)
+
+cain.switchStance()
+arthur.attack(cain)
+beatrice.attack(arthur)
+
+cain.switchStance()
+cain.attack(arthur)
+
+console.table({arthur, beatrice, cain})
+

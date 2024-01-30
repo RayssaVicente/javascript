@@ -1,3 +1,4 @@
+
 const Character = require("./Character");
 
 class Warrior extends Character{
@@ -23,3 +24,5 @@ class Warrior extends Character{
         }
     }
 }
+
+module.exports = Warrior
