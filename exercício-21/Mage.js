@@ -15,3 +15,4 @@ class Mage extends Character{
     }
 }
 
+module.exports = Mage
