@@ -42,6 +42,22 @@ module.exports =  class App {
     }
 
     createOrdder(items, user){
-        
+        const order = new Order (items, user)
+        App.#database.saveOrder(order)
+        order.data.items.forEach(({product, quantity}) => {
+            if (product instanceof Book){
+                App.#database.removeBooksFromStock(product.name, quantity)
+            }else if (product instanceof Poster){
+                App.#database.removeBooksFromStock(product.name, quantity)
+            }
+        })
+    }
+
+    getOrders(){
+        return App.#database.find('orders')
+    }
+
+    showDatabase(){
+        App.#database.showStorege()
     }
 }
