@@ -22,4 +22,26 @@ module.exports =  class App {
     getAuthor(){
         return App.#database.find('authors')
     }
+
+    createBook(title, synopie, genre, pages, author, description, price, inStock){
+        const book = new Book (title, synopie, genre, pages, author, description, price, inStock)
+        App.#database.saveBook(book)
+    }
+
+    addBook(bookName, quantity){
+        App.#database.addBooksToStock(bookName, quantity)
+    }
+
+    createPoster(name,  width, hight, description, price, inStock){
+        const poster = new Poster (name, width, hight , description, price, inStock)
+        App.#database.saveBook(poster)
+    }
+
+    addPoster(posterName, quantity){
+        App.#database.addPostersToStock(posterName, quantity)
+    }
+
+    createOrdder(items, user){
+        
+    }
 }
