@@ -1,5 +1,8 @@
 const Database = require("./Database")
 const Author = require("./classes/Author")
+const Book = require("./classes/Book")
+const Order = require("./classes/Order")
+const Poster = require("./classes/Poster")
 const User = require("./classes/User")
 
 module.exports =  class App {
@@ -11,7 +14,7 @@ module.exports =  class App {
     }
 
     getUsers(){
-        App.#database.find('users')
+         return App.#database.find('users')
     }
 
     createAuthor(name, nationality, bio){
@@ -19,7 +22,7 @@ module.exports =  class App {
         App.#database.saveAuthor(author)
     }
 
-    getAuthor(){
+    getAuthors(){
         return App.#database.find('authors')
     }
 
@@ -32,6 +35,10 @@ module.exports =  class App {
         App.#database.addBooksToStock(bookName, quantity)
     }
 
+    getBooks(){
+        return App.#database.find('books')
+    }
+
     createPoster(name,  width, hight, description, price, inStock){
         const poster = new Poster (name, width, hight , description, price, inStock)
         App.#database.saveBook(poster)
@@ -39,6 +46,10 @@ module.exports =  class App {
 
     addPoster(posterName, quantity){
         App.#database.addPostersToStock(posterName, quantity)
+    }
+
+    getPosters(){
+        return App.#database.find('posters')
     }
 
     createOrdder(items, user){

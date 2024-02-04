@@ -8,7 +8,7 @@ module.exports = class Database {
     }
 
     find(key){
-        return this.#storege(key)
+        return this.#storege[key]
     }
 
     saveAuthor(author){
@@ -20,7 +20,7 @@ module.exports = class Database {
     }
 
     saveBook(book){
-        const bookExists = this.findBooByName(book.name)
+        const bookExists = this.findBookByName(book.name)
         if(!bookExists){
             this.#storege.books.push(book)
         }
@@ -41,15 +41,15 @@ module.exports = class Database {
         return this.#storege.posters.find(p => p.name === posterName)
     }
 
-    savePoster(book){
-        const PosterExists = this.findPosterByName(poster.name)
+    savePoster(poster){
+        const posterExists = this.findPosterByName(poster.name)
         if(!posterExists){
             this.#storege.posters.push(poster)
         }
     }
 
     addPostersToStock(posterName, quantity){
-        const poster = this.findPosterByNamposter(posterName)
+        const poster = this.findPosterByName(posterName)
         poster?.addBooksToStock(quantity)
 
     }
