@@ -47,3 +47,30 @@ Deve possuir um método estático para encontrar um usuário a partir do seu ema
 Deve possuir métodos estáticos para realizar as operações de depósito, transferência e empréstimo. Elas devem ter como parâmetro as informações necessárias, como o email do usuário que está realizando a operação e o valor.
 
 Deve possuir um método para alterar a taxa dos empréstimos.*/
+
+
+const App = require("./App")
+
+App.createUser("isaac@email.com", "Isaac Pontes")
+App.createUser("lucas@email.com", "Lucas Queiroga")
+App.createUser("juliana@email.com", "Juliana Conde")
+
+App.deposit("isaac@email.com", 100)
+
+App.transfer("isaac@email.com", "lucas@email.com", 20)
+
+App.chargetLoanFee(10)
+App.takeLoan("juliana@email.com", 2000, 24)
+
+console.log(App.findUser("isaac@email.com"))
+console.log(App.findUser("isaac@email.com").account)
+console.log(App.findUser("lucas@email.com"))
+console.log(App.findUser("lucas@email.com").account)
+console.log(App.findUser("juliana@email.com"))
+console.log(App.findUser("juliana@email.com").account)
+
+
+
+
+
+
