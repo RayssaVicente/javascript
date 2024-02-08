@@ -4,3 +4,4 @@ module.exports = class Deposit {
         this.createdAt = new Date()
     }
 }
+
