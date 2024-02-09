@@ -1,4 +1,4 @@
-const User = require("./")
+const User = require("./User")
 const Deposit = require("./Deposit")
 const Transfer = require("./Transfer")
 const Loan = require("./Loan")
@@ -32,7 +32,7 @@ module.exports = class App {
         if (fromUser && toUser){
             const newTranfer = new Transfer(fromUser, toUser, value)
             fromUser.account.addTransfer(newTranfer)
-            toUser.account.addTransfer(newDeposit)
+            toUser.account.addTransfer(newTranfer)
         }
     }
 
