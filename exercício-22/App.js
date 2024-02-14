@@ -2,6 +2,7 @@ const User = require("./User")
 const Deposit = require("./Deposit")
 const Transfer = require("./Transfer")
 const Loan = require("./Loan")
+const Account = require('./Account')
 
 module.exports = class App {
     static #users = []
@@ -31,8 +32,8 @@ module.exports = class App {
         const toUser = App.findUser(toUserEmail)
         if (fromUser && toUser){
             const newTranfer = new Transfer(fromUser, toUser, value)
-            fromUser.account.addTransfer(newTranfer)
-            toUser.account.addTransfer(newTranfer)
+            fromUser.account.addTranfer(newTranfer)
+            toUser.account.addTranfer(newTranfer)
         }
     }
 
