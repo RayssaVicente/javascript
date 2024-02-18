@@ -12,4 +12,10 @@ Para que um email seja válido ele deve possuir:
 
 Para que uma senha seja válida ela deve possuir:
 
-- Pelo menos uma letra minúscula. -->
+- Pelo menos uma letra minúscula. 
+- Pelo menos uma letra maiúscula.
+- Pelo menos um número
+- Pelo menos um caractere especial.
+- Pelo menos 8 caracteres.
+
+As validação devem ser escritas em funções separadas que lançam um novo erro em caso de falha com uma mensagem apropriada. Esse erro deverá ser tratado através de um bloco trycatch, evitando que um erro seja emitido no console do navegador e mostrando para o usuário o erro ocorrido. --> 
