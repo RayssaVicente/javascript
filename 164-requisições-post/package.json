@@ -1,17 +1,12 @@
 {
-  "name": "164-requisições-post",
-  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "json-server": "json-server  --watch db.json"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "json-server": "^1.0.0-alpha.23"
+  },
+
+ 
+  "scripts": {
+    "json-server": "json-server --watch db.json"
   }
 
 }
-
