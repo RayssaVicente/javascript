@@ -1,0 +1,16 @@
+{
+  "name": "exercício-26-final",
+  "version": "1.0.0",
+  "author":"Rayssa",
+  "main": "index.js",
+  "scripts": {
+    "serve": "json-server --watch db.json"
+  },
+  "keywords": "",
+  "license": "ISC",
+
+  "description": "simulador de site de finanças",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.23"
+  }
+}
