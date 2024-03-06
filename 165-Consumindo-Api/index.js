@@ -1,4 +1,5 @@
-let transaction = []
+let transactions = []
+
 
 function createTransactionContainer(id){
     const container = document.createElement('div')
@@ -17,21 +18,20 @@ function createTransactionTitle(name){
 function createTransactionAmount(amount){
     const span = document.createElement('span')
 
-    const formater = Intl.NumberFormat('pt-BR', {
+    const formarter = Intl.NumberFormat('pt-BR', {
         compactDisplay: 'long',
         currency: 'BRL',
         style: 'currency'
     })
-    const formatedAmount = formater.format(amount)
+    const formartedAmount = formarter.format(amount)
 
-    if(amount > 0){
-        span.textContent = `${formatedAmount} C`
+    if(amount < 0){
+        span.textContent = `${formartedAmount} C`
         span.classList.add('credit')
     }else{
-        span.textContent = `${formatedAmount} D`
+        span.textContent = `${formartedAmount} D`
         span.classList.add('debit')
     }
-
     return span
 }
 
@@ -41,18 +41,29 @@ function renderTransaction(transaction){
     const amount = createTransactionAmount(transaction.amount)
 
     container.append(title, amount)
-    document.querySelector('#transaction').append(container)
+    document.querySelector('#transactions').append(container)
 }
 
-async function fetchTransaction(){
-    return await fetch("http://localhost:3000/transactions").then(res => res.json())
+async function fetchTransactions(){
+    return await fetch('http://localhost:3000/transactions').then(resp => resp.json())
+}
+
+function updateBalance(){
+    const balanceSpan = document.querySelector('#balance')
+    const balance = transactions.reduce((sum, transaction)=> sum + transaction.amount, 0)
+    const formart = Intl.NumberFormat('pt-BR', {
+        compactDisplay: 'long',
+        currency: 'BRL',
+        style: 'currency'
+    })
+    balanceSpan.textContent = formart.format(balance)
 }
 
 async function setup(){
-    const results = await fetchTransaction()
-    transaction.push(...results)
-    transaction.forEach(renderTransaction)
+    const results = await fetchTransactions()
+    transactions.push(...results)
+    transactions.forEach(renderTransaction)
+    updateBalance()
 }
 
 document.addEventListener('DOMContentLoaded', setup)
-
